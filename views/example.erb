@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><head>
+    <title>RedditExam</title>
+    <script type="text/javascript" src="/javascripts/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css"/>
+<body>
+
+<header class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#reddit-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" id="logo">EasyAcc</a>
+        </div>
+
+        <nav class="collapse navbar-collapse" id="reddit-navbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/example">例子</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row search">
+    <form accept-charset="UTF-8" action="/example" class="new_reddit_form" data-remote="true" id="new_reddit_form" method="post">
+        <div style="display:none">
+            <input name="utf8" type="hidden" value="✓">
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-6">
+            <input class="form-control" id="reddit_form_search" name="reddit_form[search]" placeholder="留空可获取首页内容" type="text">
+        </div>
+        <div class="col-md-1 col-sm-2 col-xs-2">
+            <input class="btn btn-info" data-disable-with="提交中" name="commit" type="submit" value="搜索">
+        </div>
+    </form>
+    <div class="col-md-1 col-sm-2 col-xs-3 pull-right">
+        <a class="btn btn-success" href="http://www.reddit.com" id="reddit_website" target="_blank">Reddit</a>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-12 pager"></div>
+    <div class="col-md-12" id="result">
+        <p>请点击搜索加载结果</p>
+    </div>
+    <div class="col-md-12 pager"></div>
+</div>
+
+</div>
+
+<div class="container">
+    <footer class="footer">
+        <div class="col-md-4 col-sm-4 col-xs-12 left"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12 middle">
+            <p><a href="https://github.com/agilejzl/EasyAcc">GitHub.com</a></p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 right"></div>
+    </footer>
+</div>
+
+</body>
+</html>
