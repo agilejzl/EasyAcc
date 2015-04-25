@@ -1,0 +1,10 @@
+h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px; }
+
+.msg .score {
+  float: left;
+  color: #c6c6c6;
+  width: 40px; }
+.msg h3 {
+  font-size: 1.1em; }
