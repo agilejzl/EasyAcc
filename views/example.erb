@@ -49,14 +49,17 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-12 pager">
-                <a class="prev" data-disable-with="turn to.." data-remote="true" href="http://reddit.easya.cc/example/pager?count=26&amp;before=t3_33ti3i">‹ prev</a>
-                <a class="next" data-disable-with="turn to.." data-remote="true" href="http://reddit.easya.cc/example/pager?count=50&amp;after=t3_33u39w">next ›</a>
+            <div class="col-md-12 pager" data-count="0" style="display:none">
+                <a href="#" class="prev" data-change="-25">‹ prev</a>
+                <a href="#" class="next" data-change="25">next ›</a>
             </div>
             <div class="col-md-12" id="result">
                 <p>请点击搜索加载结果</p>
             </div>
-            <div class="col-md-12 pager"></div>
+            <div class="col-md-12 pager" data-count="0" style="display:none">
+                <a href="#" class="prev" data-change="-25">‹ prev</a>
+                <a href="#" class="next" data-change="25">next ›</a>
+            </div>
         </div>
     </div>
 

@@ -9,20 +9,25 @@ class root.AjaxSearchView extends Backbone.View
         </div>'
 
     events:
-        'submit #new_reddit_form'  : 'ajax_search'
+        'submit #new_reddit_form'  :  'ajax_search'
+        'click .pager>a'           :  'turn_to_page'
 
     initialize: (options) ->
         _.extend(@, options)
         @row_compiled = _.template(row_result_tpl)
 
     ajax_search: (event) ->
-        $form = $(event.target)
-        $("#result").html("")
+        @count = 0
+        @submit_form($(event.target))
+
+    submit_form: ($form) ->
+        @$("#result").html("")
         $.ajax
             type: 'GET'
             url: 'ajax_search'
             data:
                 q: $form.find("#reddit_form_search").val().trim()
+                count: @count
             success: (data, xhr, res) =>
                 $src_list = $(data).find("#siteTable>.thing")
                 _.each $src_list, (element, index) =>
@@ -30,6 +35,23 @@ class root.AjaxSearchView extends Backbone.View
                         score: $(element).find(".rank").text()
                         href: $(element).find("a.title").attr("href")
                         content: $(element).find("a.title").text()
-                    $("#result").append(current_row)
+                    @$("#result").append(current_row)
+
+                if @count < 25
+                    @$(".pager>.prev").hide()
+                else
+                    @$(".pager>.prev").show()
+                @$(".pager").attr("data-count", @count)
+                if @$("#result>.msg").size() == 25
+                    @$(".pager").show()
+                else
+                    @$(".pager").hide()
         false
+
+    turn_to_page: (event) ->
+        $button = $(event.target)
+        current_count = ~~ $button.parent().attr("data-count")
+        change_count = ~~ $button.attr("data-change")
+        @count = current_count + change_count
+        @submit_form(@$("#new_reddit_form"), @count)
 
