@@ -1,6 +1,11 @@
 
 root = window || @
 
+root.validateURL = (textval) ->
+    urlregex = new RegExp(
+        '^(http|https|ftp)\://')
+    urlregex.test(textval)
+
 class root.AjaxSearchView extends Backbone.View
     row_result_tpl = '
         <div class="msg">
@@ -31,9 +36,12 @@ class root.AjaxSearchView extends Backbone.View
             success: (data, xhr, res) =>
                 $src_list = $(data).find("#siteTable>.thing")
                 _.each $src_list, (element, index) =>
+                    url = $(element).find("a.title").attr("href")
+                    url = "http://www.reddit.com/".concat(url) unless validateURL(url)
+
                     current_row = @row_compiled
                         score: $(element).find(".rank").text()
-                        href: $(element).find("a.title").attr("href")
+                        href: url
                         content: $(element).find("a.title").text()
                     @$("#result").append(current_row)
 

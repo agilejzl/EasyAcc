@@ -5,6 +5,12 @@
 
   root = window || this;
 
+  root.validateURL = function(textval) {
+    var urlregex;
+    urlregex = new RegExp('^(http|https|ftp)\://');
+    return urlregex.test(textval);
+  };
+
   root.AjaxSearchView = (function(superClass) {
     var row_result_tpl;
 
@@ -45,10 +51,14 @@
             var $src_list;
             $src_list = $(data).find("#siteTable>.thing");
             _.each($src_list, function(element, index) {
-              var current_row;
+              var current_row, url;
+              url = $(element).find("a.title").attr("href");
+              if (!validateURL(url)) {
+                url = "http://www.reddit.com/".concat(url);
+              }
               current_row = _this.row_compiled({
                 score: $(element).find(".rank").text(),
-                href: $(element).find("a.title").attr("href"),
+                href: url,
                 content: $(element).find("a.title").text()
               });
               return _this.$("#result").append(current_row);
