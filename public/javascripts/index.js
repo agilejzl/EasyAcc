@@ -54,7 +54,7 @@
               var current_row, url;
               url = $(element).find("a.title").attr("href");
               if (!validateURL(url)) {
-                url = "http://www.reddit.com/".concat(url);
+                url = "https://www.reddit.com/".concat(url);
               }
               current_row = _this.row_compiled({
                 score: $(element).find(".rank").text(),

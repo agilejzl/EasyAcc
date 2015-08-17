@@ -17,6 +17,6 @@ get '/ajax_search' do
         params_to_str += "search?q=#{params[:q]}&count=#{@count}"
     end
 
-    body_ios = open("http://www.reddit.com/#{params_to_str}")
+    body_ios = open("https://www.reddit.com/#{params_to_str}")
     body_ios.each_line.first
 end

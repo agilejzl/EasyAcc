@@ -37,7 +37,7 @@ class root.AjaxSearchView extends Backbone.View
                 $src_list = $(data).find("#siteTable>.thing")
                 _.each $src_list, (element, index) =>
                     url = $(element).find("a.title").attr("href")
-                    url = "http://www.reddit.com/".concat(url) unless validateURL(url)
+                    url = "https://www.reddit.com/".concat(url) unless validateURL(url)
 
                     current_row = @row_compiled
                         score: $(element).find(".rank").text()
