@@ -1,6 +1,7 @@
 source 'https://ruby.taobao.org'
 
 gem 'sinatra', '1.4.5'
+gem 'sinatra-reloader', '1.0'
 gem 'sinatra-contrib', '1.4.2'
 gem 'puma', '2.9.1'
 

@@ -2,7 +2,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'open-uri'
-require 'pry'
 
 class App < Sinatra::Base
     register Sinatra::Reloader
